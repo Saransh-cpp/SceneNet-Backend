@@ -1,3 +1,7 @@
-## TransferNet
+## Scenery Detector Backend
 
-Image detection using transfer learning.
+Scenery detection using transfer learning.
+
+## Data
+
+https://www.kaggle.com/itsahmad/indoor-scenes-cvpr-2019

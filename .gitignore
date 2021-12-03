@@ -1,2 +1,6 @@
 .venv/
 __pycache__/
+indoorCVPR_09/
+indoorCVPR_09annotations/
+TestImages.txt
+TrainImages.txt

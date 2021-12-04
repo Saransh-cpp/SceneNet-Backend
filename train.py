@@ -1,27 +1,22 @@
-# import tensorflow as tf
-from keras.preprocessing.image import ImageDataGenerator
+import cv2
 from glob import glob
 from PIL import Image
 from keras.models import Sequential
 from keras.applications.vgg19 import VGG19
 from keras.layers import Input, Lambda, Dense, Flatten
+from keras.preprocessing.image import ImageDataGenerator
+
 
 folders = glob('indoorCVPR_09/Images/*')
 vgg19 = VGG19(input_shape=(224, 224, 3), weights='imagenet', include_top=False)
 vgg19.trainable = False
 
-# create a model object
 flatten_layer = Flatten()
-# dense_layer_1 = Dense(50, activation='relu')
-# dense_layer_2 = Dense(20, activation='relu')
 prediction_layer = Dense(len(folders), activation='softmax')
-
 
 model = Sequential([
     vgg19,
     flatten_layer,
-    # dense_layer_1,
-    # dense_layer_2,
     prediction_layer
 ])
 
@@ -37,9 +32,6 @@ model.compile(
 
 
 train_datagen = ImageDataGenerator(rescale=1./255)
-#                                    shear_range=0.2,
-#                                    zoom_range=0.2,
-#                                    horizontal_flip=True)
 
 test_datagen = ImageDataGenerator(rescale=1./255, validation_split=0.2)
 
@@ -55,9 +47,11 @@ test_set = test_datagen.flow_from_directory('indoorCVPR_09/Images/',
                                             subset="validation",
                                             class_mode='categorical')
 
-r = model.fit(
+model.fit(
     training_set,
     validation_data=test_set,
     epochs=5,
     batch_size=32,
 )
+
+model.predict(cv2.imread(r"indoorCVPR_09\Images\airport_inside\airport_inside_0001.jpg"))

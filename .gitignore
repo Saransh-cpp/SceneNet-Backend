@@ -5,3 +5,4 @@ indoorCVPR_09annotations/
 TestImages.txt
 TrainImages.txt
 output
+.ipynb_checkpoints

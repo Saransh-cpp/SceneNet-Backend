@@ -6,3 +6,4 @@ TestImages.txt
 TrainImages.txt
 output
 .ipynb_checkpoints
+.vscode

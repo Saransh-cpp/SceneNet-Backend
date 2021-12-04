@@ -1,4 +1,4 @@
-## Scenery Detector Backend
+## SceneNet Backend
 
 Scenery detection using transfer learning.
 

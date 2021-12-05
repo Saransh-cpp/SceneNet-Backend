@@ -1,5 +1,6 @@
 fastapi==0.70.0
 tensorflow-cpu==2.7.0
 python-multipart==0.0.5
+gunicorn
 opencv-python-headless
 numpy==1.21.4

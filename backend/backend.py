@@ -1,3 +1,4 @@
+import os
 import cv2
 import numpy as np
 from keras.models import load_model
@@ -97,5 +98,7 @@ async def predict(image: UploadFile = File(...)):
     y_pred = model.predict(np.array([img]))
 
     category = labels[np.argmax(y_pred.flatten())]
+
+    os.remove("image.jpg")
 
     return {"category": category}

@@ -93,7 +93,7 @@ async def predict(image: UploadFile = File(...)):
 
     img = img / 255.0
 
-    model = load_model("../train_mode/model.h5")
+    model = load_model("./train_model/model.h5")
     y_pred = model.predict(np.array([img]))
 
     category = labels[np.argmax(y_pred.flatten())]

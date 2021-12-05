@@ -2,6 +2,7 @@ import os
 import cv2
 import numpy as np
 from keras.models import load_model
+from keras.backend import clear_session
 from fastapi import FastAPI, File, UploadFile
 
 
@@ -85,6 +86,8 @@ def home():
 
 @app.post("/predict")
 async def predict(image: UploadFile = File(...)):
+
+    clear_session()
 
     with open("image.jpg", "wb+") as f:
         f.write(image.file.read())

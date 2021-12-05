@@ -105,5 +105,6 @@ async def predict(image: UploadFile = File(...)):
     clear_session()
     gc.collect()
     del model
+    gc.collect()
 
     return {"category": category}

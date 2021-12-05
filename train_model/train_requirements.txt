@@ -1,7 +1,7 @@
-fastapi==0.70.0
+scipy==1.7.3
+split-folders==0.4.3
+Pillow==8.4.0
 tensorflow==2.7.0
-uvicorn==0.15.0
-python-multipart==0.0.5
 opencv-python==4.5.3.56
 opencv-contrib-python==4.5.3.56
 numpy==1.21.4

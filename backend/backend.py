@@ -1,3 +1,4 @@
+import gc
 import os
 import cv2
 import numpy as np
@@ -87,8 +88,6 @@ def home():
 @app.post("/predict")
 async def predict(image: UploadFile = File(...)):
 
-    clear_session()
-
     with open("image.jpg", "wb+") as f:
         f.write(image.file.read())
 
@@ -103,5 +102,8 @@ async def predict(image: UploadFile = File(...)):
     category = labels[np.argmax(y_pred.flatten())]
 
     os.remove("image.jpg")
+    clear_session()
+    gc.collect()
+    del model
 
     return {"category": category}

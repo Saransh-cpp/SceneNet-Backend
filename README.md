@@ -112,7 +112,7 @@ git clone https://github.com/<your_username>/SceneNet-Backend
 ```
 2. Create a new virtual environment
 ```
-python -m venve .venv
+python -m venv .venv
 ```
 3. Activate the virtual environment
 ```
